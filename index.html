@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Service Worker Test Demo</title>
+	<link rel="stylesheet" href="styles.css" type="text/css">
+	<script>
+      // Service workers require HTTPS (http://goo.gl/lq4gCo). If we're running on a real web server
+      // (as opposed to localhost on a custom port, which is whitelisted), then change the protocol to HTTPS.
+      /*if ((!location.port || location.port == "80") && location.protocol != 'https:') {
+     /* if ((!location.port || location.port == "80") && location.protocol != 'https:') {origin/master
+        location.protocol = 'https:';
+      }*/
+    </script>
+</head>
+<body>
+<h1>Service Worker Test Demo</h1>
+<div class="myImg">
+</div>
+<script>
+ if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js', {scope: './'}).then(
+		function(reg){console.log(reg);alert(reg);}, 
+		function(err){console.log('Error:'+ err);alert(err);});
+ }
+</script>
+</body>
+</html>
